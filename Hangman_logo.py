@@ -1,4 +1,7 @@
 import calendar
+from curses.ascii import isalpha
+
+
 import random
 
 
@@ -45,10 +48,21 @@ MAX_TRIES=6;
  #   print((5 * num - 160) / 9, 'C');
 #if('c' in num_degree):
 #    print((9 * num + 32 * 5) / 5, 'F');
-date=str(input("enter the date: "))
+#date=str(input("enter the date: "))
 
-x = calendar.weekday(int(date [6:]), int(date [3:5]), int(date[0:2]))
+#x = calendar.weekday(int(date [6:]), int(date [3:5]), int(date[0:2]))
 
-day = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+#day = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 
-print(day[x])
+#print(day[x])
+Guessed_letter=input("Guess a letter: ").lower().replace(" ", "")
+if(len(Guessed_letter) > 1):
+    if(Guessed_letter.isalpha() == 0):#if=0 -> not a letter
+        print("E3")
+    else:
+        print("E1")
+elif(Guessed_letter.isalpha() == 0):
+    print("E2")
+else:
+    print(Guessed_letter)
+
